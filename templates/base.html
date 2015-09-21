@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aphelion</title>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<div class="header">
+    <h2>
+    {% if page == 'index' %}
+        APHELION
+    {% else %}
+        <a href="/">APHELION</a>
+    {% endif %}
+    </h2>
+    <div class="subheader">
+        {% for item in ['universe', 'features', 'art'] %}
+            {% if item == page %}
+                <h2 id="current">
+                    {% filter upper %}{{ item }}{% endfilter %}
+                </h2>
+            {% else %}
+                <h2><a href="/{{ item }}">
+                    {% filter upper %}{{ item }}{% endfilter %}
+                </a></h2>
+            {% endif %}
+        {% endfor %}
+        <noscript>
+			<h2><a href="secret/login.php" class="login">LOGIN</a></h2>
+		</noscript>
+    </div>
+    <hr/>
+</div>
+<div class="content">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

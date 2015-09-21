@@ -1,0 +1,304 @@
+body {
+	background: #241F1C;
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #e3dedb;
+	margin: 0;
+	text-align: center;
+	font-family: 'montserratregular', 'Sans';
+}
+
+/* page title */
+h1 {
+	margin: 0;
+	font-family: 'montserratbold', 'Sans';
+	font-size: 7em;
+}
+
+h2 {
+	display: inline;
+	font-family: 'montserratbold', 'Sans';
+	padding: 0 20;
+	margin: 0;
+}
+
+h3 {
+	//display: inline;
+	font-family: 'montserratbold', 'Sans';
+	padding: 0 20;
+	font-size: 2em;
+}
+
+h4 {
+	margin: 10 0 5;
+	font-size: 2em;
+}
+
+h4.forum {
+	font-size: 1.25em;
+}
+
+h5 {
+	margin: 0 20;
+}
+
+a:hover {
+	color: #D2C678;
+}
+
+a {
+	font-family: 'montserratbold', 'Sans';
+	text-decoration: none;
+	color: #E3DEDB;
+}
+
+
+p {
+	text-align: center;
+}
+
+ul {
+	padding: 5 10;
+	list-style-type: none;
+}
+
+img {
+	margin: 10;
+}
+
+div.overlay {
+	z-index: 99;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	background: rgba(145,124,111,0.5);
+	display: none;
+	top: 0;
+	left: 0;
+	vertical-align: middle;
+}
+
+div.loginbox {
+	z-index: 100;
+	position: relative;
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	border: solid 1px #e3dedb;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10vh;
+	display: inline-block;
+	padding: 100;
+}
+
+.close {
+	position: absolute;
+	font-size: 2em;
+	margin: 0;
+	padding: 0;
+	top: 5;
+	right: 5;
+}
+
+div.header {
+	z-index: 50;
+	width: 100%;
+	position: fixed;
+	text-align: left;
+	font-size: 1.1em;
+	padding: 10 5 5;
+	background: #241F1C;
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+div.subheader {
+	display: block;
+	float: right;
+	text-align: right;
+	font-size: .8em;
+}
+
+div.content, div.forum {
+	max-width: 70%;
+	padding-top: 20vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.forum {
+	text-align: left;
+}
+
+div.status {
+	font-size: 1em;
+	color: #F08475;
+	padding: -10 0;
+}
+
+.left {
+	float: left;
+}
+
+div.section {
+	margin: 0 0 100;
+}
+
+div.editor {
+	text-align: left;
+	max-width: 900px;
+}
+
+#current {
+	color: #917C6F;
+}
+
+form {
+	font-size: .9em;
+}
+
+form.forum {
+	text-align: left;
+}
+
+.stacked {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input {
+	padding: 10 10 10 10;
+	margin: 10 10;
+	border: none;
+	font-family: 'montserratregular', 'Sans';
+	background: #E3DEDB;
+	color: #241F1C;
+}
+
+input.forum {
+	display: block;
+	margin-left: 10;
+	margin-right: auto;
+	margin-top: 0;
+}
+
+input:hover {
+	background: #D2C678;
+}
+
+textarea {
+	border: none;
+	padding: 10;
+	margin: 0 10 10;
+	font-family: 'montserratregular', 'Sans';
+	font-size: .75em;
+	background: #E3DEDB;
+	color: #917C6F;
+	width: 400px;
+	display: block;
+}
+
+table {
+	width: 700px;
+	margin: 20 0;
+	border-collapse: collapse;
+	border: 1px solid #E3DEDB;
+
+}
+
+td.content {
+	font-family: 'montserrateregular', 'Sans';
+	padding: 5 30 5;
+	border-top: 1px solid #E3DEDB;
+}
+
+th {
+	font-size: 1.1em;
+	font-family: 'montserratbold', 'Sans';
+	background: #241F1C;
+	padding: 5;
+	text-align: left;
+	border-top: 1px solid #E3DEDB;
+}
+
+th.count {
+	font-family: 'montserratregular', 'Sans';
+	font-size: 1em;
+}
+
+td.postAuthor, td.postDate {
+	font-size: .8em;
+	font-family: 'montserratregular', 'Sans';
+	color: #917C6F;
+	border: 0px none;
+	padding: 0 5 5;
+}
+
+td.postDate {
+	text-align: right;
+}
+
+.slider-nav, .slider-for, .art-nav, .art-gallery {
+	display: none; 
+	z-index: 3;
+	width: 50vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.slider-nav {
+	height: 2em;
+	display:none;
+	text-align: center;
+}
+
+.art-nav {
+	height: 100px;
+	text-align: center;
+}
+
+.slider-for {
+	max-height: auto;
+}
+
+.slick-center {
+	font-size: 1.25em; //relative to content
+}
+
+hr {
+	width: 90%;
+	border: 0;
+    height: 1px;
+	margin: 5 5 0;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
+}
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('fonts/Montserrat-Regular-webfont.eot');
+    src: url('fonts/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Montserrat-Regular-webfont.woff') format('woff'),
+         url('fonts/Montserrat-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Montserrat-Regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserratbold';
+    src: url('fonts/Montserrat-Bold-webfont.eot');
+    src: url('fonts/Montserrat-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Montserrat-Bold-webfont.woff') format('woff'),
+         url('fonts/Montserrat-Bold-webfont.ttf') format('truetype'),
+         url('fonts/Montserrat-Bold-webfont.svg#montserratbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
