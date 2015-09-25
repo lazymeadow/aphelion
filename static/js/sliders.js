@@ -14,24 +14,29 @@ $(function () {
 		slidesToScroll: 1,
 		dots: false,
 		centerMode: true,
+		centerPadding: '0px',
 		focusOnSelect: true,
-		swipe: true,
 		variableWidth: true,
+		adaptiveHeight: true,
+		swipe: true,
 		asNavFor: '.slider-for'
 	});
 	$('.slider-for > p').hide();
 });
 
 $(function() {
-	$('.art-nav').slick({
+	$('.gallery-bar').slick({
 		slidesToShow: 3,
-		fade: false,
-		dots: false,
 		slidesToScroll: 1,
-		centerMode: true,
-		asNavFor: '.art-gallery'
+		dots: false,
+		vertical: true,
+		focusOnSelect: true,
+		arrows: true,
+		prevArrow: '<img src="static/images/up.png"/>',
+		nextArrow: '<img src="static/images/down.png"/>',
+		asNavFor: ('.gallery')
 	});
-	$('.art-gallery').slick({
+	$('.gallery').slick({
 		arrows: false,
 		fade: false
 	});

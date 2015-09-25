@@ -19,19 +19,19 @@ h1 {
 h2 {
 	display: inline;
 	font-family: 'montserratbold', 'Sans';
-	padding: 0 20;
+	padding: 0 20px;
 	margin: 0;
 }
 
 h3 {
 	//display: inline;
 	font-family: 'montserratbold', 'Sans';
-	padding: 0 20;
+	padding: 0 20px;
 	font-size: 2em;
 }
 
 h4 {
-	margin: 10 0 5;
+	margin: 10px 0 5px;
 	font-size: 2em;
 }
 
@@ -40,7 +40,7 @@ h4.forum {
 }
 
 h5 {
-	margin: 0 20;
+	margin: 0 20px;
 }
 
 a:hover {
@@ -53,18 +53,22 @@ a {
 	color: #E3DEDB;
 }
 
-
 p {
 	text-align: center;
 }
 
 ul {
-	padding: 5 10;
+	padding: 5px 10px;
 	list-style-type: none;
 }
 
 img {
-	margin: 10;
+	margin: 10px;
+}
+
+img.gallery {
+	width: inherit;
+	margin: 0px;
 }
 
 div.overlay {
@@ -89,8 +93,8 @@ div.loginbox {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10vh;
-	display: inline-block;
-	padding: 100;
+	width: 40vw;
+	padding: 100px;
 }
 
 .close {
@@ -98,8 +102,8 @@ div.loginbox {
 	font-size: 2em;
 	margin: 0;
 	padding: 0;
-	top: 5;
-	right: 5;
+	top: 5px;
+	right: 5px;
 }
 
 div.header {
@@ -108,7 +112,7 @@ div.header {
 	position: fixed;
 	text-align: left;
 	font-size: 1.1em;
-	padding: 10 5 5;
+	padding: 10px 5px 5px;
 	background: #241F1C;
 	background-image: url("background.jpg");
 	background-repeat: no-repeat;
@@ -136,7 +140,7 @@ div.forum {
 div.status {
 	font-size: 1em;
 	color: #F08475;
-	padding: -10 0;
+	padding: -10px 0;
 }
 
 .left {
@@ -144,7 +148,7 @@ div.status {
 }
 
 div.section {
-	margin: 0 0 100;
+	margin: 0 0 100px;
 }
 
 div.editor {
@@ -171,8 +175,8 @@ form.forum {
 }
 
 input {
-	padding: 10 10 10 10;
-	margin: 10 10;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px;
 	border: none;
 	font-family: 'montserratregular', 'Sans';
 	background: #E3DEDB;
@@ -181,7 +185,7 @@ input {
 
 input.forum {
 	display: block;
-	margin-left: 10;
+	margin-left: 10px;
 	margin-right: auto;
 	margin-top: 0;
 }
@@ -192,8 +196,8 @@ input:hover {
 
 textarea {
 	border: none;
-	padding: 10;
-	margin: 0 10 10;
+	padding: 10px;
+	margin: 0 10px 10px;
 	font-family: 'montserratregular', 'Sans';
 	font-size: .75em;
 	background: #E3DEDB;
@@ -204,7 +208,7 @@ textarea {
 
 table {
 	width: 700px;
-	margin: 20 0;
+	margin: 20px 0;
 	border-collapse: collapse;
 	border: 1px solid #E3DEDB;
 
@@ -212,7 +216,7 @@ table {
 
 td.content {
 	font-family: 'montserrateregular', 'Sans';
-	padding: 5 30 5;
+	padding: 5px 30px 5px;
 	border-top: 1px solid #E3DEDB;
 }
 
@@ -220,7 +224,7 @@ th {
 	font-size: 1.1em;
 	font-family: 'montserratbold', 'Sans';
 	background: #241F1C;
-	padding: 5;
+	padding: 5px;
 	text-align: left;
 	border-top: 1px solid #E3DEDB;
 }
@@ -235,19 +239,28 @@ td.postAuthor, td.postDate {
 	font-family: 'montserratregular', 'Sans';
 	color: #917C6F;
 	border: 0px none;
-	padding: 0 5 5;
+	padding: 0 5px 5px;
 }
 
 td.postDate {
 	text-align: right;
 }
 
-.slider-nav, .slider-for, .art-nav, .art-gallery {
+.gallery-bar {
+	float: left;
+	width: 10vw;
+}
+
+.slider-nav, .slider-for, .gallery {
 	display: none; 
 	z-index: 3;
 	width: 50vw;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.inline {
+	display: inline;
 }
 
 .slider-nav {
@@ -256,13 +269,9 @@ td.postDate {
 	text-align: center;
 }
 
-.art-nav {
+.gallery-bar {
 	height: 100px;
 	text-align: center;
-}
-
-.slider-for {
-	max-height: auto;
 }
 
 .slick-center {
@@ -273,7 +282,7 @@ hr {
 	width: 90%;
 	border: 0;
     height: 1px;
-	margin: 5 5 0;
+	margin: 5px 5px 0;
     background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
     background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(145,124,111,0.75), rgba(0,0,0,0)); 

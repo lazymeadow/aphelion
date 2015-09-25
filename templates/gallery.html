@@ -2,24 +2,26 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
-{% endblock %}
-
-{% block content %}
-    <div class="slider-nav">
-    {% for path in paths %}
-        <div><h2>{{ path }}</h2></div>
-    {% endfor %}
-    </div>
-    <div class="slider-for">
-    {% for path in paths %}
-        <div>{{ path }}</div>
-    {% endfor %}
-    </div>
-
-
-
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/sliders.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+        <div class="gallery-bar">
+        {% for thumb in thumbs %}
+            <div>
+                <img src="{{ thumb }}"/>
+            </div>
+        {% endfor %}
+        </div>
+
+        <div class="gallery">
+        {% for img in imgs %}
+            <div>
+                <img src="{{ img }}" class="gallery"/>
+            </div>
+        {% endfor %}
+        </div>
 
 {% endblock %}

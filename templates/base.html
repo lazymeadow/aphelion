@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Aphelion</title>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% block head %}
     {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 </head>
 <body>
 <div class="header">
+    <div class="overlay">
+        <div class="loginbox">
+        <form name="login">
+            <label for="username">Username:</label>
+            <input name="username" type="text"/>
+            <label for="password">Password:</label>
+            <input name="password" type="password"/>
+            <input type="submit" value="Login"/>
+        </form>
+        <a class="close">Close</a>
+        </div>
+    </div>
     <h2>
     {% if page == 'index' %}
         APHELION
