@@ -1,0 +1,8 @@
+<form name="login" method="post" action="{{ url_for('login') }}">
+    <label for="username" class="stacked">Username</label>
+    <input name="username" class="stacked" type="text"/>
+    <label for="password" class="stacked">Password</label>
+    <input name="password" class="stacked" type="password"/>
+    <input type="submit" class="stacked" value="Login"/>
+    <a href="{{ url_for('register') }}">(Register)</a>
+</form>

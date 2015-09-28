@@ -18,14 +18,8 @@
 <div class="header">
     <div class="overlay">
         <div class="loginbox">
-        <form name="login">
-            <label for="username">Username:</label>
-            <input name="username" type="text"/>
-            <label for="password">Password:</label>
-            <input name="password" type="password"/>
-            <input type="submit" value="Login"/>
-        </form>
-        <a class="close">Close</a>
+            {% include "page_parts/login_form.html" %}
+            <a class="close">Close</a>
         </div>
     </div>
     <h2>
@@ -35,6 +29,9 @@
         <a href="/">APHELION</a>
     {% endif %}
     </h2>
+    {% if current_user.authenticated %}
+        Hi, {{ current_user.name }}.
+    {% endif %}
     <div class="subheader">
         {% for item in ['universe', 'features', 'art'] %}
             {% if item == page %}

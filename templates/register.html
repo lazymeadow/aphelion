@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <form name="register" method="post" action="{{ url_for('create_user') }}">
+        <label for="name" class="stacked">Name</label>
+        <input name="name" class="stacked"/>
+        <label for="username" class="stacked">Username</label>
+        <input name="username" class="stacked"/>
+        <label for="pass1" class="stacked">Password</label>
+        <input name="pass1" class="stacked" type="password"/>
+        <label for="pass2" class="stacked">Confirm password</label>
+        <input name="pass2" class="stacked" type="password"/>
+        <label for="email" class="stacked">Email</label>
+        <input name="email" class="stacked" type="email"/>
+        <label for="avatar" class="stacked">Avatar</label>
+        <input name="avatar" class="stacked" type="file"/>
+        <input type="submit" class="stacked" value="Register"/>
+    </form>
+{% endblock %}

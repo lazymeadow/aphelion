@@ -84,6 +84,7 @@ div.overlay {
 }
 
 div.loginbox {
+	text-align: center;
 	z-index: 100;
 	position: relative;
 	background-image: url("background.jpg");

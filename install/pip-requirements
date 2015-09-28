@@ -1,0 +1,7 @@
+flask
+alembic
+flask-login
+flask-mysqldb
+flask-sqlalchemy
+flask-migrate
+webargs
