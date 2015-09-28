@@ -2,21 +2,14 @@ import sys
 import os
 import traceback
 
-from flask import render_template, send_from_directory, request, redirect
-from flask.ext.script import Manager
-from flask.ext.migrate import Migrate, MigrateCommand
-from flask.ext.login import LoginManager, UserMixin, login_user
+from flask import render_template, send_from_directory, request, redirect, flash
+from flask.ext.login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
 
-from webargs import Arg
+from webargs import fields
 
 from lib import parser, dbadd, app, db, encryptor
 from models.users import Person
 
-
-migrate = Migrate(app, db)
-
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -24,31 +17,39 @@ login_manager.login_view = 'login'
 
 
 class User(UserMixin):
-    authenticated = False
     def __init__(self, username):
-        self.person = db.session.get(Person).where(Person.username == username).first()
-
-    def is_authenticated(self):
-        return self.authenticated
+        self.person = db.session.query(Person).filter(Person.username == username).first()
 
     def get_id(self):
         return self.person.username
 
     @staticmethod
     def get(user_id):
-        return User(db.session.get(Person).where(Person.username == user_id).first().username)
+        return User(db.session.query(Person).filter(Person.username == user_id).first().username)
 
 
 def validate_user(username, password):
-    user = User.get(username)
-    if encryptor.loads(user.person.password) == password:
-        return True
-    return False
+    try:
+        print username, password
+        user = User.get(username)
+        if encryptor.loads(user.person.password) == password:
+            print 'valid user'
+            return True
+        print 'invalid user'
+        return False
+    except Exception as e:
+        traceback.print_exc(sys.exc_traceback)
 
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
 
 
 def get_content(rel_path):
@@ -79,6 +80,7 @@ def favicon():
 
 @app.route('/')
 def index():
+    print current_user.is_authenticated()
     return render_template('index.html', page='index')
 
 
@@ -99,13 +101,21 @@ def art():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method is 'POST':
-        args = {'username': Arg(str, required=True),
-                'password': Arg(str, required=True)}
+    if current_user.is_authenticated():
+        return redirect('/')
+    if request.method == 'POST':
+        print 'post'
+        args = {'username': fields.Str(required=True),
+                'password': fields.Str(required=True)}
         args = parser.parse(args, request)
+        print args
         if validate_user(args['username'], args['password']):
             login_user(User.get(args['username']))
-    return render_template('login.html')
+            return redirect('/')
+        else:
+            return render_template('login.html', error='Login failed')
+    if request.method == 'GET':
+        return render_template('login.html')
 
 
 @app.route('/register', methods=['GET'])
@@ -118,11 +128,11 @@ def create_user():
     def validate_email(email):
         return (len(email.split('@')) == 2) and (len(email.split('.')) >= 2)
 
-    args = {"name": Arg(str, required=True),
-            "username": Arg(str, required=True),
-            "pass1": Arg(str, required=True),
-            "pass2": Arg(str, required=True),
-            "email": Arg(str, required=True, validate=validate_email)}
+    args = {"name": fields.Str(required=True),
+            "username": fields.Str(required=True),
+            "pass1": fields.Str(required=True),
+            "pass2": fields.Str(required=True),
+            "email": fields.Str(required=True, validate=validate_email)}
 
     args = parser.parse(args, request, validate=lambda args: args['pass1'] == args['pass2'])
 
@@ -147,5 +157,4 @@ def errorstuff(error):
 
 if __name__ == '__main__':
     app.jinja_env.filters['content_title_filter'] = content_title_filter
-    # app.run()
-    manager.run()
+    app.run(host='0.0.0.0', port=5000) # , use_reloader=True)

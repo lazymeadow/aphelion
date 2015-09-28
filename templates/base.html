@@ -13,6 +13,34 @@
     {% endblock %}
     {% block scripts %}
     {% endblock %}
+
+    <script type="text/javascript">
+        $(function () {
+            {% if current_user.is_authenticated() and not current_user.is_anonymous() %}
+            $(".subheader").append("<h2><a href=\"{{ url_for('logout') }}\">LOGOUT</a></h2>");
+            {% else %}
+            $(".subheader").append("<h2><a href=\"#!\" id=\"login\" class=\"login\">LOGIN</a></h2>");
+            {% endif %}
+            //login lightbox
+            $("#login").click(function() {
+                $(".overlay").show();
+            });
+            $("#logout").click(function() {
+                $(".overlay").show();
+            });
+            $(".close").click(function() {
+                $(".overlay").hide();
+            });
+
+            //login validation
+            $(".login").validate();
+
+            $(".passwordchange").validate();
+        });
+
+
+    </script>
+
 </head>
 <body>
 <div class="header">
@@ -29,9 +57,6 @@
         <a href="/">APHELION</a>
     {% endif %}
     </h2>
-    {% if current_user.authenticated %}
-        Hi, {{ current_user.name }}.
-    {% endif %}
     <div class="subheader">
         {% for item in ['universe', 'features', 'art'] %}
             {% if item == page %}
@@ -45,12 +70,21 @@
             {% endif %}
         {% endfor %}
         <noscript>
-			<h2><a href="secret/login.php" class="login">LOGIN</a></h2>
+            {% if current_user.is_authenticated %}
+            <h2><a href="{{ url_for('logout') }}">LOGOUT</a></h2>
+            {% else %}
+			<h2><a href="{{ url_for('login') }}" class="login">LOGIN</a></h2>
+            {% endif %}
 		</noscript>
     </div>
     <hr/>
 </div>
 <div class="content">
+{% if error is defined %}
+<div class="has-error">
+    {{ error }}
+</div>
+{% endif %}
 {% block content %}
 {% endblock %}
 </div>
