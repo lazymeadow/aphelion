@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/jquery-ui-1.11.4.custom/jquery-ui.css') }}" />
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs();
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="tabs">
+        <ul>
+            {% for path in paths %}
+                <li>
+                    <a href="#tabs-{{ loop.index0 }}">
+                            {% filter content_title_filter %}{{ path }}{% endfilter %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        {% for path in paths %}
+            <div id="tabs-{{ loop.index0 }}">
+                {% include path %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

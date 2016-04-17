@@ -1,0 +1,24 @@
+Known Issues
+------------------------------
+* File upload does not show message of upload failure or success
+* Art share is not uploading properly, nor saving to database
+* Art share is missing features to manipulate the meta data of an image (title, caption, public/private, etc)
+* Forum is still a little bit ugly
+* Deleting forum posts, files, and art is not currently functional
+* Large files will not upload, and because the message isn't displaying, there is no feedback
+
+
+Next Steps(a lot of it Javascript)
+------------------------------
+* Fix file handling
+* Enforce image upload restrictions
+* Include pictures in forums
+* Resize uploaded pictures for thumbnails/avatars with a script
+* Expand/Collapse on Universe & Features sections
+* Login pops up instead of new page
+* Logout redirects to home page
+* Image galleries (art/artshare)
+* File tree (fileshare)
+* User profiles with more options
+* Comments and votes for each individual section/image
+* BRAINSTORM SECTION - Javascript (time permitting)

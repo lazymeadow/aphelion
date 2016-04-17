@@ -1,0 +1,23 @@
+<!-- features/professions.php -->
+
+<p>Players will have the ability to adopt (a) profession(s), which can include those that create goods. The process of crafting goods will be interactive, like a minigame (but relevant). It will be more interesting than the usual grind.</p>
+<p>Examples: Armor/Weaponsmith/Gunsmith, Farmer, Tailor, Architect, Cook, Artist, Engineer</p>
+<p>Professions will also include those that provide services.</p>
+<p>Examples: Doctor, Barber, Makeup Artist, Plastic Surgeon, Mechanic, Musician, Dancer</p>
+<p>Players can maintain storefronts/offices to provide their goods/services. There will also be public markets and auctions.</p>
+<p>There is also a possiblity of military/government careers. Of course, that means you can be a criminal, smuggler, or whatever. You can steal (with consequences).</p>
+<ul>Possible opportunities:
+	<li>Deliveries</li>
+	<li>Resource brokerage</li>
+	<li>Player stores and marketplaces</li>
+	<li>Missions</li>
+	<li>Crime/Smuggling</li>
+	<li>Police/Military work</li>
+	<li>NPC Quests</li>
+	<li>Entertainment</li>
+	<li>Bartending</li>
+	<li>Doctor/Medicine</li>
+	<li>Crafting</li>
+	<li>Services</li>
+	<li>Real Estate</li>
+</ul>
